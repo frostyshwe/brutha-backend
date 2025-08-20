@@ -37,8 +37,8 @@ const ENV_ORIGINS = (process.env.CORS_ORIGINS || "")
 
 const ALLOWLIST = [
   "http://localhost:3000",
-  "http://127.0.0.1:3000",
-  "http://localhost:5173",
+  "http://www.bruthaengenharia.com.br",
+  "http://bruthaengenharia.com.br",
   "https://www.bruthaengenharia.com.br",
   "https://bruthaengenharia.com.br",
   ...ENV_ORIGINS,
