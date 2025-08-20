@@ -99,9 +99,10 @@ const comercialRoutes = require("./backend/routes/comercialRoutes");
 
 // ATENÇÃO: garanta que o nome do arquivo bate com o require (Linux é case-sensitive).
 // Se o arquivo chama "InteracaoComercialRoutes.js", use exatamente isso:
-const interacoesComercialRoutes = require("./backend/routes/InteracaoComercialRoutes");
+const interacoesComercialRoutes = require("./backend/routes/InteracaoComercialRoutes"); // I maiúsculo
 const tipoInteracaoRoutes = require("./backend/routes/tipoInteracaoRoutes");
 const origemClienteRoutes = require("./backend/routes/origemClienteRoutes");
+const interesseComercialRoutes = require("./backend/routes/interesseComercialRoutes");  // i minúsculo
 
 // Mantive **exatamente** seus paths para não quebrar o front, com a correção do nome de variável:
 app.use("/api/fornecedores", require("./backend/routes/fornecedores"));
