@@ -1,0 +1,651 @@
+ .erpContainer {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow-y: auto;
+  }
+  
+  .erpNavbar {
+    background-color: #072d54;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 32px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .logoImg {
+    height: 50px;
+    object-fit: contain;
+  }
+  
+  .navLinks {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .navItem {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 13px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+    border-radius: 10px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+  }
+  
+  .navIcon {
+    font-size: 32px;
+    margin-bottom: 4px;
+  }
+  
+  .navItem:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    transform: scale(1.05);
+  }
+  
+  .active {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: scale(1.05);
+  }
+  
+  .actionToolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #d0ebff;
+    border-bottom: 1px solid #dbe2ef;
+    padding: 12px 32px;
+    margin-bottom: 0;
+  }
+  
+  .toolbarButtons {
+    display: flex;
+    gap: 12px;
+  }
+  
+  .toolbarButtons button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+    opacity: 0.7;
+  }
+  
+  .erpActionBtn {
+    background-color: #072d54;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    padding: 10px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .erpActionBtn:hover {
+    background-color: #05213d;
+    transform: scale(1.05);
+  }
+  
+  .tableContainer {
+    overflow-y: auto;
+    height: calc(100vh - 110px);
+    background-color: #ffffff;
+    padding-bottom: 80px;
+  }
+  
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    table-layout: auto;
+  }
+  
+  .table th {
+    background-color: #676c79;
+    color: white;
+    padding: 10px;
+    text-align: left;
+    font-weight: bold;
+    border-bottom: 2px solid #ccc;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+  }
+  
+  .table td {
+    padding: 1px 9px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .table tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .table tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .selectedRow {
+    background-color: #d0ebff !important;
+  }
+  
+  /* MODAIS */
+  .modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+  }
+  
+  
+  .modal {
+    background: #fff;
+    padding: 30px 20px;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 600px; /* ↓ Reduzi de 800 para 600 */
+    max-height: 90vh;
+    overflow-y: auto;
+    margin: auto; /* ↓ Isso centraliza o conteúdo vertical/horizontal */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .modalBotoesIncluir {
+    display: flex;
+    justify-content: center; /* 👈 Centraliza os botões */
+    gap: 12px;
+    margin-top: 20px;
+  }
+  
+  .tableContainer {
+  height: calc(100vh - 110px);
+    overflow-y: auto;
+    padding: 0;
+    background-color: #fff;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .detalhesOverlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 999;
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .detalhesPainel {
+    width: 350px;
+    background-color: white;
+    height: 100%;
+    padding: 20px;
+    box-shadow: -2px 0 10px rgba(0,0,0,0.2);
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0  px;
+  }
+
+  .detalhesPainel p {
+    margin: 8px 0;
+    font-size: 15px;
+    line-height: 1.4;
+  }
+  
+
+  .btnDetalhes {
+    background-color: transparent;
+    border: none;
+    color: #333;
+    font-size: 18px;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    transition: background-color 0.2s ease;
+  }
+  
+  .btnDetalhes:hover {
+    background-color: #d0ebff;
+  }
+
+  .detalhesHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+  }
+  
+  .btnFechar {
+    background: none;
+    border: none;
+    color: #333;
+    font-size: 20px;
+    cursor: pointer;
+    transition: color 0.2s ease;
+  }
+  
+  .btnFechar:hover {
+    color: #d11a2a;
+  }
+  
+  .tituloDetalhes {
+    font-size: 20px;
+    font-weight: bold;
+    color: #072d54;
+    margin: 0;
+  }
+  
+  .tituloDetalhes span {
+    color: #05396d;
+
+  }
+  
+
+  .btnDetalhes span {
+    display: inline-block;
+    transform: rotate(90deg); /* Deixa o botão em pé */
+  }
+  
+  .formRow {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    width: 100%;
+  }
+  
+  .formGroup {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 30%;
+  }
+
+  .modal.modalPequeno {
+    max-width: 500px;
+  }
+  
+  .modal h3 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #072d54;
+  }
+  
+  .modal label {
+    font-size: 13px;
+    margin-bottom: 4px;
+    font-weight: 600;
+    color: #072d54;
+  }
+  
+  .modal input,
+  .modal select {
+    padding: 10px;
+    margin-bottom: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+  }
+  
+  .modal textarea {
+    padding: 10px;
+    margin-bottom: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    font-family: "Segoe UI", sans-serif;
+    resize: none;
+  }
+  
+  .modal button {
+    padding: 10px;
+    font-weight: bold;
+    background-color: #072d54;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .modal button:hover {
+    background-color: #05213d;
+  }
+  
+  .modal .btnCancelar {
+    background-color: #ccc !important;
+    color: #333 !important;
+  }
+  
+  .modal .btnCancelar:hover {
+    background-color: #b3b3b3 !important;
+  }
+  
+  .modalFooter {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 16px;
+    background: white;
+    padding-top: 10px;
+  }
+  
+  .botaoAnexo {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+  }
+  
+  .popupOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+  }
+  
+  .popup {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    width: 500px;
+    max-width: 90%;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  }
+  
+  .popup input {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+  }
+  
+  .popupButtons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+  }
+  
+  .popupFiltro {
+    width: 400px;
+    background-color: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .popupFiltro input,
+  .popupFiltro select {
+    width: 100%;
+    padding: 8px;
+    font-size: 14px;
+  }
+  
+  .popupFiltro h2 {
+    margin-top: 0;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  .listaAnexos {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .itemAnexo {
+    background: #f7f9fc;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .iconeAnexo {
+    font-size: 20px;
+    margin-right: 10px;
+  }
+  
+  .nomeArquivo {
+    flex: 1;
+    font-size: 14px;
+    color: #072d54;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  
+  .btnAnexo {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    color: #072d54;
+    padding: 4px;
+    border-radius: 4px;
+    transition: background 0.2s ease;
+  }
+  
+  .btnAnexo:hover {
+    background-color: #d0ebff;
+  }
+  
+  .asteriscoObrigatorio {
+    color: red;
+    font-weight: bold;
+  }
+  
+  .linkAnexo {
+  color: #007bff;
+  text-decoration: underline;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.linkAnexo:hover {
+  opacity: 0.8;
+}
+
+.subgestaoContainer {
+  margin-top: 20px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 16px;
+  border-radius: 8px;
+}
+
+.subTabela {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  font-size: 13px;
+}
+
+.subTabela th {
+background-color: #676c79;
+    color: #fff;
+    padding: 10px;
+    text-align: left;
+    font-weight: bold;
+    border-bottom: 2px solid #ccc;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+}
+
+.subTabela td {
+    padding: 9px 9px;
+    border-bottom: 1px solid #ddd;
+  }
+
+.subGestaoTituloBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #d0ebff;
+    padding: 0px 32px;
+    margin-bottom: -10px;
+}
+
+.subGestaoTituloTexto {
+  font-weight: normal;
+  color: rgb(0, 0, 0);
+}
+
+.subTabela input {
+  width: 100%;
+  padding: 6px 4px;
+    font-family: inherit;
+    font-size: inherit;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  background: none;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.subTabela input:focus {
+  border-bottom: 1px solid #072d54;
+}
+
+.subTabela td:last-child button {
+  padding: 6px 10px;
+  background-color: #072d54;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.subTabela td:last-child button:hover {
+  background-color: #05213d;
+  transform: scale(1.05);
+}
+
+.fakeDropdownWrapper {
+  position: relative;
+  width: 100%;
+}
+
+.fakeDropdownToggle {
+  padding: 6px 10px;
+  border-bottom: 1px solid #ccc;
+  background-color: white;
+  cursor: pointer;
+  height: 18px;
+  font-size: 13px;
+}
+
+.fakeDropdownLista {
+  position: absolute;
+  bottom: 100%;         /* ← ao invés de top: 100% */
+  left: 0;
+  right: 0;
+  max-height: 180px;    /* 6 itens x 30px */
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  border-radius: 6px 6px 0 0; /* Borda arredondada para cima */
+  background-color: white;
+  z-index: 100;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+
+.fakeDropdownLista li {
+  padding: 8px 10px;
+  cursor: pointer;
+}
+
+.fakeDropdownLista li:hover {
+  background-color: #cccccc;
+}
+
+.dropdownCadastroToggle {
+  padding: 0px 10px;
+  height: 38px;
+  line-height: 36px;
+  font-size: 14px;
+  background-color: transparent;
+  border: none;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  width: 100%;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease;
+}
+
+.dropdownCadastroLista {
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  right: 0;
+  max-height: 180px;
+  overflow-y: auto;
+  background-color: white;
+  z-index: 100;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-radius: 6px 6px 0 0;
+  box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.dropdownCadastroLista li {
+  padding: 7px 10px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.dropdownCadastroLista li:hover {
+  background-color: #cccccc;
+}
+
+.linhaDupla {
+  display: flex;
+  gap: 16px;
+  width: 100%;
+}
+
+.linhaDupla .formGroup {
+  flex: 1;
+}

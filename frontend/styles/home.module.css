@@ -1,0 +1,54 @@
+/* Importa a fonte do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+/* Centraliza a tela e ajusta a posição */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 90vh; /* Reduzi um pouco para subir o painel */
+  background-color: #f4f4f4;
+  font-family: "Poppins", sans-serif; /* Nova fonte */
+}
+
+/* Estiliza o título */
+.title {
+  font-size: 36px;
+  font-weight: 600;
+  margin-bottom: 40px; /* Aumentei o espaçamento abaixo do título */
+}
+
+/* Grid de botões alinhados corretamente */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 220px); /* Aumentei a largura dos botões */
+  grid-template-rows: repeat(2, 110px); /* Aumentei a altura dos botões */
+  gap: 25px; /* Aumentei o espaçamento entre os botões */
+}
+
+/* Estilização dos botões */
+.button {
+  background-color: #27ae60;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s ease;
+}
+
+/* Efeito hover */
+.button:hover {
+  background-color: #219150;
+}
+
+/* Botões desativados */
+.button:disabled {
+  background-color: #bfbfbf;
+  cursor: not-allowed;
+}

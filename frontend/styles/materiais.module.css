@@ -1,0 +1,343 @@
+.erpContainer {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.erpNavbar {
+  background-color: #072d54;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 32px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.logoImg {
+  height: 50px;
+  object-fit: contain;
+}
+
+.navLinks {
+  display: flex;
+  gap: 20px;
+}
+
+.navItem {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 13px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  border-radius: 10px;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+.navIcon {
+  font-size: 32px;
+  margin-bottom: 4px;
+}
+
+.navItem:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  transform: scale(1.05);
+}
+
+.active {
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
+}
+
+.actionToolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #d0ebff;
+  border-bottom: 1px solid #dbe2ef;
+  padding: 12px 32px;
+  margin-bottom: 0;
+}
+
+.toolbarButtons {
+  display: flex;
+  gap: 12px;
+}
+
+.toolbarButtons button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.erpActionBtn {
+  background-color: #072d54;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  padding: 10px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.erpActionBtn:hover {
+  background-color: #05213d;
+  transform: scale(1.05);
+}
+
+.tableContainer {
+  overflow-y: auto;
+  height: calc(100vh - 110px);
+  background-color: #ffffff;
+  padding-bottom: 80px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  table-layout: auto;
+}
+
+.table th {
+  background-color: #676c79;
+  color: white;
+  padding: 10px;
+  text-align: left;
+  font-weight: bold;
+  border-bottom: 2px solid #ccc;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+.table td {
+  padding: 8px 9px;
+  border-bottom: 1px solid #ddd;
+}
+
+.table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.table tr:hover {
+  background-color: #f1f1f1;
+}
+
+.selectedRow {
+  background-color: #d0ebff !important;
+}
+
+/* MODAIS */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal {
+  background: #fff;
+  padding: 30px 20px;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 800px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+}
+
+.modal.modalPequeno {
+  max-width: 500px;
+}
+
+.modal h3 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  color: #072d54;
+}
+
+.modal label {
+  font-size: 13px;
+  margin-bottom: 4px;
+  font-weight: 600;
+  color: #072d54;
+}
+
+.modal input,
+.modal select {
+  padding: 10px;
+  margin-bottom: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.modal textarea {
+  padding: 10px;
+  margin-bottom: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  font-family: "Segoe UI", sans-serif;
+  resize: none;
+}
+
+.modal button {
+  padding: 10px;
+  font-weight: bold;
+  background-color: #072d54;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.modal button:hover {
+  background-color: #05213d;
+}
+
+.modal .btnCancelar {
+  background-color: #ccc !important;
+  color: #333 !important;
+}
+
+.modal .btnCancelar:hover {
+  background-color: #b3b3b3 !important;
+}
+
+.modalBotoesIncluir {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.modalFooter {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 16px;
+  background: white;
+  padding-top: 10px;
+}
+
+/* Layout horizontal para inputs */
+.formRow {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 45%;
+}
+
+/* Sugestões */
+.sugestoes {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  max-height: 150px;
+  overflow-y: auto;
+  background-color: #f9f9f9;
+}
+
+.sugestoes li {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.sugestoes li:hover {
+  background-color: #e0f0ff;
+}
+
+.obsColuna {
+  max-width: 200px;
+  word-break: break-word;
+  white-space: normal;
+}
+
+.descColuna {
+  max-width: 200px;
+  word-break: break-word;
+  white-space: normal;
+}
+
+.paginacaoContainer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 32px;
+  background-color: #d0ebff;
+  border-top: 1px solid #ccc;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.paginacaoControles label {
+  font-size: 13px;
+  margin-right: 8px;
+  font-weight: bold;
+}
+
+.paginacaoControles select {
+  padding: 6px;
+  font-size: 13px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.paginacaoNumeros {
+  display: flex;
+  gap: 6px;
+}
+
+.paginacaoNumeros button {
+  padding: 6px 12px;
+  font-size: 13px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: white;
+  cursor: pointer;
+}
+
+.paginacaoNumeros button:hover {
+  background-color: #072d54;
+  color: white;
+  border-color: #072d54;
+}
+
+.paginacaoNumeros .paginaAtiva {
+  background-color: #072d54;
+  color: white;
+  font-weight: bold;
+  border-color: #072d54;
+}

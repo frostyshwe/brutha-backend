@@ -1,0 +1,27 @@
+# Dependências
+node_modules/
+**/node_modules/
+
+# Variáveis de ambiente
+.env
+*.env
+
+# Builds/artefatos
+dist/
+out/
+build/
+.next/
+.vercel/
+
+# Logs
+npm-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Uploads/arquivos grandes (IMPORTANTÍSSIMO!)
+backend/uploads/
+**/uploads/
+
+# IDE
+.vscode/
+.DS_Store
